@@ -1,10 +1,7 @@
-\# src
+# src
 
 Adicione os códigos fonte do seu projeto
 
-
-
-\# latex
+# latex
 
 Edite o seu projeto
-
