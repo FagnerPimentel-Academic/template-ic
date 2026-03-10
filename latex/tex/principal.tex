@@ -1,0 +1,74 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%            author(s): Fagner de Assis Moura Pimentel
+%%          description: Modelo de trabalho de Iniciação Cientifica (IC)
+%
+%%                  **  NÂO ALTERAR ESTE ARQUIVO **
+%%       No arquivo *info.tex* selecione a fase atual da sua IC.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{fei}
+\usepackage{lipsum}  
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor,colortbl}
+\usepackage{ifthen}
+
+\addbibresource{referencias.bib}
+
+\input{info.tex}
+
+\title{\titulo}
+\author{\aluno}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{folhaderosto}
+
+    \faseAtual~ de Iniciação Científica apresentado ao Centro Universitário FEI, como parte dos requisitos do Programa PIBITI-CNPq. \\
+
+    \begin{tabular}{ p{0.3\linewidth} p{0.01\linewidth} p{0.6\linewidth}}
+        \textbf{Orientador}     & : & \orientador \\
+        \textbf{Departamento}   & : & \departamento \\
+        \textbf{Candidato}      & : & \aluno \\
+        \textbf{R.A.}           & : & \registro \\ 
+        \textbf{Inicio}         & : & \dataInicio \\
+        \textbf{Conclusão}      & : & \dataFinal
+    \end{tabular}
+\end{folhaderosto}
+
+\input{Texto/resumo.tex}
+
+
+\ifthenelse{\equal{\faseAtual}{Projeto}}
+% then
+{} 
+% else
+{
+\listoffigures
+\listoftables
+\listofalgorithms
+\tableofcontents
+}
+
+\input{Texto/intro.tex}
+\input{Texto/revisao.tex}
+\input{Texto/metodologia.tex}
+
+\ifthenelse{\equal{\faseAtual}{Projeto}}
+% then
+{
+    \input{Texto/cronograma.tex}  % aparece no projeto
+}
+% else
+{
+    \input{Texto/resultado.tex} % Aparece nos relatórios
+    \input{Texto/discursao.tex} % Aparece nos relatórios
+    \input{Texto/conclusao.tex} % Aparece nos relatórios
+}
+
+\printbibliography
+
+\end{document}
