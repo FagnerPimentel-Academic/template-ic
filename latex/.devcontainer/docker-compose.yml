@@ -1,0 +1,16 @@
+services:
+
+  principal:
+    build:
+      context: .
+    volumes:
+      - ../output:/output
+      - ../tex:/tex
+      - ./build:/build
+    stdin_open: true
+    tty: true
+    command: 
+      - /bin/bash
+      - -c
+      - |
+        /texpdf.sh principal
